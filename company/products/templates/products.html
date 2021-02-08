@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1>yolo</h1>
+<ul>
+    {% for product in products %}
+        <li>{{product.name}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
