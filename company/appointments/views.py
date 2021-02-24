@@ -1,8 +1,8 @@
-from django.views.genaric import View
+from django.views.generic import View
 from django.shortcuts import render
 from .forms import AppointmentForm
 
-class AppointmentView(View):
+class AppointmentsView(View):
 
     def get(self, request):
         form = AppointmentForm()
@@ -18,7 +18,7 @@ class AppointmentView(View):
             instance = form.save()
 
             return render(request, "appointments.html", {
-                "form": form
+                "form": form,
                 "submitted": instance.__str__()
             })
         else:

@@ -11,6 +11,7 @@ class Person(models.Model):
     image = models.ImageField(upload_to=MEDIA_LOCATION, default=f"{MEDIA_LOCATION}/{DEFAULT}")
 
     def save(self, *args, **kwargs):
+        new_filename = DEFAULT
         if DEFAULT in self.image.url:
             # Copy image to a new, unique file related to the person's name and the time of download
             new_filename = f"{self.name[:10]}-{datetime.now().isoformat()}"
